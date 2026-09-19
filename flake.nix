@@ -1,23 +1,27 @@
 {
-  description = "tux's awesomeWM configuration";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  description = "tux's wm/compositor configurations";
 
-  outputs = {
-    self,
-    nixpkgs,
-  }: let
-    systems = [
-      "x86_64-linux"
-      "aarch64-linux"
-      "x86_64-darwin"
-      "aarch64-darwin"
-    ];
-
-    forAllSystems = function: nixpkgs.lib.genAttrs systems (system: function nixpkgs.legacyPackages.${system});
-  in {
-    packages = forAllSystems (pkgs: rec {
-      default = tawm;
-      tawm = pkgs.callPackage ./default.nix {};
-    });
-  };
+  outputs =
+    {
+      self,
+    }:
+    let
+      overlay = final: prev: {
+        twm = {
+          awesome-wm = final.callPackage ./package.nix {
+            name = "awesome-wm";
+            path = ./src/awesome-wm;
+            description = "tux's awesome-wm config";
+          };
+          hyprland = final.callPackage ./package.nix {
+            name = "hyprland";
+            path = ./src/hyprland;
+            description = "tux's hyprland config";
+          };
+        };
+      };
+    in
+    {
+      overlays.default = overlay;
+    };
 }

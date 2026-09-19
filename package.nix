@@ -1,20 +1,21 @@
 {
   stdenv,
   lib,
-}: let
-  awesome = ./src;
-in
+  name,
+  path,
+  description,
+}:
   stdenv.mkDerivation {
-    pname = "tawm";
+    pname = name;
     version = "0.1.0";
 
     buildCommand = ''
       mkdir -p $out
-      cp -r ${awesome}/* "$out/"
+      cp -r ${path}/* "$out/"
     '';
 
     meta = with lib; {
-      description = "tux's awesomeWM config";
+      inherit description;
       homepage = "https://tux.rs";
       platforms = platforms.all;
       license = licenses.gpl3;

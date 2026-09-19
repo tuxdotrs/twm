@@ -1,5 +1,5 @@
 <h3 align="center">
-  tux's awesomeWM config
+  tux's wm/compositor config's
 </h3>
 <p align="center">
  <a href="https://wakatime.com/badge/user/012e8da9-99fe-4600-891b-bd9d8dce73d9/project/05c45792-1efd-43b3-a8c5-73968fbd9338"><img src="https://wakatime.com/badge/user/012e8da9-99fe-4600-891b-bd9d8dce73d9/project/05c45792-1efd-43b3-a8c5-73968fbd9338.svg" alt="wakatime"></a>
@@ -16,16 +16,21 @@
 ```nix
 # Add to your flake inputs
 tawm = {
-  url = "github:tuxdotrs/tawm";
+  url = "github:tuxdotrs/twm";
   inputs.nixpkgs.follows = "nixpkgs";
 };
 
+# Add this to your nixpkgs overlays
+overlays = [
+  inputs.twm.overlays.default
+];
+
 # Add this in your HomeManager config
-{ inputs, ... }: {
+{
   home.file = {
     ".config/awesome" = {
       recursive = true;
-      source = "${inputs.tawm.packages.x86_64-linux.default}";
+      source = "${pkgs.twm.awesome-wm}";
     };
   };
 }
