@@ -33,6 +33,13 @@ overlays = [
       source = "${pkgs.twm.awesome-wm}";
     };
   };
+
+  home.file = {
+    ".config/hypr" = {
+      recursive = true;
+      source = "${pkgs.twm.hyprland}";
+    };
+  };
 }
 ```
 
