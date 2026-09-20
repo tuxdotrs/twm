@@ -31,7 +31,7 @@ hl.bind("SUPER + F", hl.dsp.exec_cmd(file_manager))
 hl.bind("SUPER + E", hl.dsp.exec_cmd(editor))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(browser))
 hl.bind("SUPER + G", hl.dsp.exec_cmd("GalaxyBudsClient"))
-hl.bind("SUPER + D", hl.dsp.exec_cmd("vesktop"))
+hl.bind("SUPER + D", hl.dsp.exec_cmd("discord"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd("Telegram"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("vicinae deeplink vicinae://launch/clipboard/history"))
 

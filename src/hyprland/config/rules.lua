@@ -106,6 +106,6 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  match = { class = "(vesktop|org.telegram.desktop)" },
+  match = { class = "(discord|vesktop|org.telegram.desktop)" },
   workspace = "7 silent",
 })
