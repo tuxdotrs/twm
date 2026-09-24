@@ -33,6 +33,16 @@ hl.window_rule({
 hl.window_rule({
   name = "Float by class",
   match = {
+    class = "Waydroid",
+  },
+
+  float = true,
+  center = true,
+})
+
+hl.window_rule({
+  name = "Float by class",
+  match = {
     class = "org.pulseaudio.pavucontrol|floating-terminal|com.ghostty.floating|GalaxyBudsClient|rog-control-center|xdg-desktop-portal-gtk|com.gabm.satty",
   },
 
