@@ -1,12 +1,11 @@
 -- https://wiki.hypr.land/Configuring/Basics/Binds/
 
 local terminal = "kitty"
-local floating_terminal = "kitty --class floating-terminal"
-local editor = "kitty -e nvim"
-local file_manager = "kitty -e superfile"
-local resource_monitor = floating_terminal .. " -e btop"
-local network_manager = floating_terminal .. " -e impala"
-local bluetooth_manager = floating_terminal .. " -e bluetui"
+local editor = terminal .. " -e nvim"
+local file_manager = terminal .. " -e superfile"
+local resource_monitor = terminal .. " -e btop"
+local network_manager = terminal .. " -e impala"
+local bluetooth_manager = terminal .. " -e bluetui"
 local launcher = "vicinae toggle"
 local browser = "brave-origin --new-window"
 
@@ -35,10 +34,10 @@ hl.bind("SUPER + D", hl.dsp.exec_cmd("discord"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd("Telegram"))
 hl.bind("SUPER + V", hl.dsp.exec_cmd("vicinae deeplink vicinae://launch/clipboard/history"))
 
-hl.bind("SUPER + SHIFT + RETURN", hl.dsp.exec_cmd(floating_terminal))
-hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd(bluetooth_manager))
-hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(network_manager))
-hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd(resource_monitor))
+hl.bind("SUPER + SHIFT + RETURN", hl.dsp.exec_cmd(terminal, { float = true }))
+hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd(bluetooth_manager, { float = true }))
+hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(network_manager, { float = true }))
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd(resource_monitor, { float = true }))
 hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("voxtype record start"))
 hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("voxtype record stop"), { release = true })
 hl.bind("SUPER + CTRL + EQUAL", function()

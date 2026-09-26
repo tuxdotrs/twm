@@ -43,7 +43,7 @@ hl.window_rule({
 hl.window_rule({
   name = "Float by class",
   match = {
-    class = "org.pulseaudio.pavucontrol|floating-terminal|com.ghostty.floating|GalaxyBudsClient|rog-control-center|xdg-desktop-portal-gtk|com.gabm.satty",
+    class = "org.pulseaudio.pavucontrol|GalaxyBudsClient|rog-control-center|xdg-desktop-portal-gtk|com.gabm.satty",
   },
 
   float = true,
