@@ -11,8 +11,14 @@ hl.workspace_rule({
     bottom = 600,
     left = current_gaps_out.left,
   },
-  on_created_empty = "kitty",
 })
+
+-- Spawn kitty when the scratchpad is created empty (replaces deprecated on_created_empty)
+hl.on("workspace.created", function(ws)
+  if ws.addressable_name == "special:scratchpad" and ws.is_empty then
+    hl.exec_cmd("kitty", { workspace = ws.addressable_name })
+  end
+end)
 
 -- Tags
 hl.window_rule({ float = true, match = { tag = "float" } })

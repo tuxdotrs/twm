@@ -12,7 +12,6 @@ hl.config({
 
   master = {
     allow_small_split = false,
-    special_scale_factor = 0.8,
     mfact = 0.5,
     new_on_top = false,
     orientation = "left",
@@ -23,7 +22,6 @@ hl.config({
   dwindle = {
     force_split = 2,
     preserve_split = true,
-    special_scale_factor = 0.95,
   },
 
   scrolling = {
