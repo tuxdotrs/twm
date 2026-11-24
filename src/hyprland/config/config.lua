@@ -75,7 +75,7 @@ hl.config({
     disable_autoreload = true,
     disable_hyprland_logo = true,
     on_focus_under_fullscreen = 2,
-    vrr = 0,
+    vrr = 2,
   },
 
   xwayland = {
