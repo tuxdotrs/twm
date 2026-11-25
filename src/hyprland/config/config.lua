@@ -95,4 +95,8 @@ hl.config({
     workspace_swipe_create_new = false,
     workspace_swipe_cancel_ratio = 0.1,
   },
+
+  render = {
+    cm_auto_hdr = 0;
+  },
 })

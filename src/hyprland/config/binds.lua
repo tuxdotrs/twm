@@ -137,3 +137,15 @@ hl.bind("XF86Launch4", hl.dsp.exec_cmd("asusctl profile -n"))
 -- Move/resize windows with SUPER + LMB/RMB and dragging
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- HDR Toggle
+hl.bind("SUPER + ALT + B", hl.dsp.exec_cmd([[
+  hyprctl eval '
+    local active_monitor = hl.get_active_monitor()
+    local output = active_monitor.name
+    if hl.get_monitor(output).cm == "hdr" then
+      hl.monitor({ output = output, cm = "srgb" })
+    else
+      hl.monitor({ output = output, cm = "hdr", bitdepth = 10 })
+    end'
+]]))
